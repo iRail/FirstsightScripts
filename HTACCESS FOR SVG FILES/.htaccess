@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# Use PNG as fallback for the SVG-incompatibles browsers
+RewriteCond %{HTTP_ACCEPT} !image/svg
+RewriteCond %{HTTP_USER_AGENT} (Android\ 1\.|Android\ 2\.|MSIE\ 5\.|MSIE\ 6\.|MSIE\ 7\.|MSIE\ 8\.|Firefox\/3.)
+RewriteRule ^(.*)(\.svg)$ $1.png [PT,L,T=image/png]
